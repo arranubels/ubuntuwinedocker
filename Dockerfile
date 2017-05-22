@@ -9,8 +9,9 @@ RUN apt-get update \
 		curl \
 		unzip \
 		ca-certificates \ 
-		wine \
-		wine32 \
+    && dpkg --add-architecture i386 \
+		&& apt-get update \
+		&& apt-get install -y --no-install-recommends \
 		&& rm -rf /var/lib/apt/lists/*
 
 USER u 
