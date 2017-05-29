@@ -1,7 +1,7 @@
 FROM ubuntu
 USER root
 RUN apt-get update \
-	&& apt-get install -y --no-install-recommends curl unzip ca-certificates sudo vim wget software-properties-common python-software-properties apt-transport-https \ 
+	&& apt-get install -y --no-install-recommends curl unzip ca-certificates sudo vim wget software-properties-common python-software-properties apt-transport-https bzip2 \ 
 	&& dpkg --add-architecture i386 \
 	&& wget -nc https://dl.winehq.org/wine-builds/Release.key \
 	&& apt-key add Release.key \
