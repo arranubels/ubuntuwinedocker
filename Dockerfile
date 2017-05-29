@@ -1,13 +1,10 @@
-FROM ubuntu
+FROM ubuntu:16.10
 USER root
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends curl unzip ca-certificates sudo vim wget software-properties-common python-software-properties apt-transport-https bzip2 git \
 	&& dpkg --add-architecture i386 \
-	&& wget -nc https://dl.winehq.org/wine-builds/Release.key \
-	&& apt-key add Release.key \
-	&& apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/ \
 	&& apt-get update \
-	&& apt-get install -y --install-recommends winehq-stable \
+	&& apt-get install -y --install-recommends wine32 wine-stable \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& useradd -ms /bin/bash -u 1000 u
 
