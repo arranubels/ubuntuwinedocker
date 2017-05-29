@@ -1,14 +1,14 @@
 FROM ubuntu
-
-# Inspired by monokrome/wine
 USER root
-
-# Install some tools required for creating the image
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends curl unzip ca-certificates \ 
 	&& dpkg --add-architecture i386 \
+	&& wget -nc https://dl.winehq.org/wine-builds/Release.key \
+	&& apt-key add Release.key \
+	&& apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/ \
 	&& apt-get update \
-	&& apt-get install -y --no-install-recommends wine wine1.6-i386 \
+	&& apt-get install -y --no-install-recommends sudo vim \
+	&& apt-get install -y --install-recommends winehq-stable \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& useradd -ms /bin/bash -u 1000 u
 
