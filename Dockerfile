@@ -1,7 +1,7 @@
 FROM ubuntu:16.10
 USER root
 RUN apt-get update \
-	&& apt-get install -y --no-install-recommends curl unzip ca-certificates sudo vim wget software-properties-common python-software-properties apt-transport-https bzip2 git bsdmainutils \
+	&& apt-get install -y --no-install-recommends curl unzip ca-certificates sudo vim wget software-properties-common python-software-properties apt-transport-https bzip2 git bsdmainutils isomd5sum mc \
 	&& dpkg --add-architecture i386 \
 	&& apt-get update \
 	&& apt-get install -y --install-recommends wine32 wine-stable \
